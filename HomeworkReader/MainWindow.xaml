@@ -1,0 +1,46 @@
+﻿<Window x:Class="HomeworkReader.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HomeworkReader"
+        mc:Ignorable="d"
+        Title="Homework to FEN" Height="900" Width="1000">
+    <Window.Resources>
+        <ResourceDictionary>
+            <BitmapImage x:Key="Pieces" UriSource="/Resources/ChessPiecesArray.png"></BitmapImage>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Width="900" Height="900">
+        <TextBox x:Name="tbHomework" Text="> Kg1,Qa6,Rc6,Be3,a3,f2,g2,h3&#x0a;>&#x0a;> Kh7,Qf5,Rd8,Be7,b5,e6,g7,h6" Margin="26,16,501,834" TextWrapping="Wrap" AcceptsReturn="True" />
+
+        <StackPanel>
+            <RadioButton x:Name="rbWhite" GroupName="WorB" Content="White" HorizontalAlignment="Left" Margin="414,5,0,0" VerticalAlignment="Top" IsChecked="True"/>
+            <RadioButton x:Name="rbBlack" GroupName="WorB" Content="Black" HorizontalAlignment="Left" Margin="414,5,0,0" VerticalAlignment="Top"/>
+       
+
+        </StackPanel>
+
+        
+        <Grid  HorizontalAlignment="Center" Height="700" Margin="92,98,108,128" VerticalAlignment="Center" Width="700">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"></RowDefinition>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Name="tbQuestion" Text="" FontSize="16" FontWeight="Bold" Grid.Row="1" Grid.Column="1"/>
+            <Canvas x:Name="ChessBoard" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Border Background="GhostWhite" BorderBrush="DarkGray" BorderThickness="1" CornerRadius="8,8,3,3">
+                </Border>
+            </Canvas>
+        </Grid>
+        <TextBox x:Name="tbFen" HorizontalAlignment="Left" Height="23" Margin="95,794,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="364" IsReadOnlyCaretVisible="True"/>
+        <Button x:Name="btnCopy" Content="Copy FEN to Clipboard"  HorizontalAlignment="Center" Margin="502,794,0,0" VerticalAlignment="Top" Width="150" Height="23"/>
+        <Button x:Name="btnProcess" Content="Process" HorizontalAlignment="Center" Margin="502,10,0,0" VerticalAlignment="Top" Width="75"/>
+
+
+
+    </Grid>
+</Window>
